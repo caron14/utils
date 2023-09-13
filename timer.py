@@ -24,9 +24,10 @@ def timer(func):
     """
     def inner(*args, **kwargs):
         before = time.time()
-        func(*args, **kwargs)
+        ret = func(*args, **kwargs)
         after = time.time()
         print(f"{func.__name__} took {after-before:.2f} sec")
+        return ret
     return inner
 
 
